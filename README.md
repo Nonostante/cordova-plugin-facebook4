@@ -26,6 +26,7 @@ The Facebook plugin for [Apache Cordova](http://cordova.apache.org/) allows you 
   * cordova-android >= 4.0
   * cordova-ios >= 3.8
   * cordova-browser >= 3.6
+  * cordova-windows >= 5.0.0
   * Phonegap build (use phonegap-version >= cli-5.2.0, android-minSdkVersion>=15, and android-build-tool=gradle), see [example here](https://github.com/yoav-zibin/phonegap-tictactoe/blob/gh-pages/www/config.xml)
 
 #### Install Guides
@@ -191,6 +192,7 @@ App events allow you to understand the makeup of users engaging with your app, m
 
 - [iOS] [https://developers.facebook.com/docs/ios/app-events](https://developers.facebook.com/docs/ios/app-events)
 - [Android] [https://developers.facebook.com/docs/android/app-events](https://developers.facebook.com/docs/android/app-events)
+- [Windows] Use the Graph API to log events [Doc](https://developers.facebook.com/docs/marketing-api/app-event-api/v2.9)
 - [JS] Does not have an Events API, so the plugin functions are empty and will return an automatic success
 
 Activation events are automatically tracked for you in the plugin.
@@ -227,6 +229,8 @@ Example options:
       url: "http://example.com",
       picture: "http://example.com/image.png"
     }
+
+**NODE:** Not available on windows
 
 ## Sample Code
 

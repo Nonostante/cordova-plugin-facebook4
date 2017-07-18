@@ -19,12 +19,14 @@
 
     <preference name="APP_ID" />
     <preference name="APP_NAME" />
+    <preference name="WP_APP_ID" default="" />
 
     <engines>
         <!-- Requires > 3.5.0 because of the custom Framework tag for iOS [CB-6698] -->
         <!-- Requires > 4.0.0 because of the Framework tag for Android that uses gradle -->
         <engine name="cordova-android" version=">=3.5.0" />
         <engine name="cordova-ios" version=">=3.5.0" />
+        <engine name="cordova-windows" version=">=5.0.0" />
     </engines>
 
     <!-- android -->
@@ -174,6 +176,27 @@
             <access origin="https://*.fbcdn.net" />
             <access origin="https://*.akamaihd.net" />
         </config-file>
+    </platform>
+
+    <!-- windows -->
+    <platform name="windows">   
+        <js-module src="www/facebook-native.js" name="FacebookConnectPlugin">
+            <clobbers target="facebookConnectPlugin" />
+        </js-module>    
+		<js-module src="src/windows/facebookProxy.js" name="FacebookConnectProxy">
+            <merges target="" />
+        </js-module>
+        <config-file target="/config.xml" parent="/*" device-target="all">
+            <access origin="https://m.facebook.com" />
+            <access origin="https://connect.facebook.net" />
+            <access origin="https://graph.facebook.com" />
+            <access origin="https://api.facebook.com" />
+            <access origin="https://*.fbcdn.net" />
+            <access origin="https://*.akamaihd.net" />
+            <preference name="APP_ID" value="$APP_ID" />
+            <preference name="APP_NAME" value="$APP_NAME" />
+            <preference name="wP_APP_ID" value="$WP_APP_ID" />
+        </config-file>               
     </platform>
 
     <!-- after_prepare hook to populate APP_ID -->
